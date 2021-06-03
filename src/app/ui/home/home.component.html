@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+        <div id="main-content" class="file_manager">
+                <div class="container">
+                    <div class="row clearfix" >
+                      <div class="col-md-1"></div>
+                        <div class="col-md-10 " >
+                            <div class="card" *ngFor="let recipe of recipes|async"  >
+                                <div class="file" >
+                                    <a href="javascript:void(0);">
+                                        <div class="hover">
+                                            <button type="button" (click)="deleteRecipe(recipe.id)" class="btn btn-icon btn-danger">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
+                                        <div class="image">
+                                            <img src="{{recipe.imgUrl}}" alt="img" class="img-fluid">
+                                        </div>
+                                        <div class="file-name">
+                                            <p class="m-b-5 text-muted">{{recipe.recipeName}}</p>
+                                            <small>Calories: {{recipe.calories}} <span class="date text-muted">Dec 11, 2017</span></small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="col-md-1"></div>
+</div>
+                        </div>
+                        </div>
+                        

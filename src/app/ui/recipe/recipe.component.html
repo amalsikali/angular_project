@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h1 style="text-align: center;">Add recipe</h1>
+        <form [formGroup]="addForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">ID</label>
+                <input type="text" class="form-control"  formControlName="id" aria-describedby="emailHelp" placeholder="Enter id">
+                </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Title</label>
+          <input type="text" class="form-control"  formControlName="recipeName" aria-describedby="emailHelp" placeholder="Enter Nameof the Recipe">
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Description</label>
+          <input type="text" formControlName="description" class="form-control" placeholder="description">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Calories</label>
+          <input type="text"formControlName="calories" class="form-control" placeholder="calories number">
+         </div>
+         <div class="form-group">
+             <label for="exampleInputPassword1">Image</label>
+            <input type="text" formControlName="imgUrl" class="form-control" placeholder="image url">
+         </div>
+        <br>
+        <button type="submit" (click)="addRecipe()" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+      <div class="col-md-3"></div>
+</div>

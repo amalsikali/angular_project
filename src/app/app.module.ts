@@ -11,8 +11,13 @@ import { AuthserviceService } from './services/authservice.service';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { RecepiesComponent } from './nutrition/recepies/recepies.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FavoritsComponent } from './ui/favorits/favorits.component';
+import { HomeComponent } from './ui/home/home.component';
+import { DescriptionComponent } from './ui/description/description.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
+import { RecipeComponent } from './ui/recipe/recipe.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    RecepiesComponent
+    FavoritsComponent,
+    HomeComponent,
+    DescriptionComponent,
+    NavbarComponent,
+    RecipeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthserviceService],
   bootstrap: [AppComponent]

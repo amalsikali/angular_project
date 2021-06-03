@@ -1,19 +1,34 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecepieService {
- recepieUrl ="https://api.nal.usda.gov/fdc/v1/foods/list?api_key=";
- key ="4twIAPbmpJ3VZQPQc35nno35eXME0VMz2uyvb9y4"
+  uid;
+constructor(private afs:AngularFirestore){
+   this.uid=JSON.parse(localStorage.getItem('user')).uid ;
+
+
+}
+  addRecipe(recipe){
+        this.afs.collection("users/"+this.uid+"/recipes").add(recipe).then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+      })
+      .catch((error) => {
+          console.error("Error adding document: ", error);
+      });
+  }
+
+  getRecipes(){
+   return this.afs.collection("users/"+this.uid+"/recipes").valueChanges();
+  }
+  deleteRecipe(id){
+    let doc =this.afs.firestore.collection("users/"+this.uid+"/recipes").
+     where('id','==',id).get();
+     doc.then(recipes => { recipes.forEach(recipe=>recipe.ref.delete())
+  })
  
-  constructor(private http : HttpClient ){ 
-
-  }
-
-  getRecepies(){
-    return this.http.get(this.recepieUrl+this.key);
-  }
-
+   }
 }
