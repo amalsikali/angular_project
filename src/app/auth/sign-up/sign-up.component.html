@@ -20,7 +20,7 @@
                      <label>Password</label>
                      <input type="password" class="form-control" placeholder="Password" #userPwd required>
                   </div>
-                  <button type="submit" class="btn btn-secondary" (click)="authService.SignUp(userEmail.value, userPwd.value)">Register</button>
+                  <button type="submit" class="btn btn-secondary" (click)="authService.SignUp(userEmail.value, userPwd.value)"routerLink="/sign-in">Register</button>
                </form>
             </div>
               <!-- Continue with Google -->

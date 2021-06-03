@@ -24,6 +24,16 @@ this.recipes=this.recepieService.getRecipes()
   deleteRecipe(id){
     this.recepieService.deleteRecipe(id);
   }
-      
+  addToFavorits(id,recipiename,img,cal,description){
+   let rec={
+      id:id,
+      recipeName:recipiename,
+      imgUrl:img,
+      calories:cal,
+      description:description
+
+   }
+    this.recepieService.addToFavorits(rec);
+  }
  
 }

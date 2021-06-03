@@ -20,7 +20,7 @@
                      <label>Password</label>
                      <input type="password" class="form-control" placeholder="Password"  #userPassword required>
                   </div>
-                  <button type="submit" class="btn btn-black" (click)="authService.SignIn(userName.value, userPassword.value)">Login</button>
+                  <button type="submit" class="btn btn-black" (click)="authService.SignIn(userName.value, userPassword.value)" routerLink="/home">Login</button>
                   <button type="submit" class="btn btn-secondary" routerLink="/register-user">Register</button>
                </form>
             </div>

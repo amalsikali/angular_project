@@ -6,17 +6,20 @@
                 <div class="container">
                     <div class="row clearfix" >
                       <div class="col-md-1"></div>
-                        <div class="col-md-10 " >
-                            <div class="card" *ngFor="let recipe of recipes|async"  >
+                        <div class="col-md-10 " style="display: flex; flex-wrap: wrap; justify-content:space-around;" >
+                            <div class="card"  style="margin: 20px;" *ngFor="let recipe of recipes|async" >
                                 <div class="file" >
                                     <a href="javascript:void(0);">
                                         <div class="hover">
                                             <button type="button" (click)="deleteRecipe(recipe.id)" class="btn btn-icon btn-danger">
                                                 <i class="fa fa-trash"></i>
                                             </button>
+                                            <button type="button" (click)="addToFavorits(recipe.id,recipe.recipeName,recipe.imgUrl,recipe.calories,recipe.description)" class="btn btn-icon btn-danger">
+                                              <i class="fa fa-star"></i>
+                                          </button>
                                         </div>
                                         <div class="image">
-                                            <img src="{{recipe.imgUrl}}" alt="img" class="img-fluid">
+                                            <img  routerLink="/description/{{recipe.id}}" src="{{recipe.imgUrl}}" alt="img" class="img-fluid">
                                         </div>
                                         <div class="file-name">
                                             <p class="m-b-5 text-muted">{{recipe.recipeName}}</p>
